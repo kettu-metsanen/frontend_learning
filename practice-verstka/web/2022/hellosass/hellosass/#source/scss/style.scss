@@ -1,0 +1,46 @@
+@import "nullstyle.scss";
+
+$fz:10px;
+
+%tpl_border{
+    border-bottom: 5px dashed red;
+}
+@mixin fonz($f, $c) {
+    font-size: $f;
+    color: $c;
+}
+.block{
+    width: 300px / 960px *100%;
+    background-color: grey;
+    padding: 30px;
+    font-size: $fz;
+    line-height: 40px;
+    .block__text{
+        
+        span{
+            color: green;
+        }
+    }
+    &.block--big{
+        font-size: $fz;
+    }
+}
+.link{
+    color: yellow;
+    text-decoration: underline;
+    font-size: $fz;
+
+    .block &{
+        font-style: italic;
+
+    }
+
+    &:hover{
+        color: grey;
+    }
+    @extend %tpl_border;
+}
+.link-2{
+    @include fonz(50px, blue);
+    @extend %tpl_border;
+}
